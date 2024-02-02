@@ -7,4 +7,4 @@
 | 1. Wireframes | LOHI | 
 | 2. Wireframes | HIFI |
 
-![BILLYBAT](http://tinyurl.com/3yzmuzpp)
+![BILLYBAT](http://tinyurl.com/bdcuprvk)

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users</title>
+    <title>Pets</title>
     <link rel="stylesheet" href="/css/master.css">   
 </head>
 <body>
@@ -19,80 +19,95 @@
         </header>
 
         <section class="module">
-            <h1>Module Users</h1>
+            <h1>Module Pets</h1>
            <table>
                 <tbody>
                     <tr>
-                        <td><img src="/Images/ico-user.svg" alt=""></td>
-                        <td>User 01</td>
-                          <td>
-                            <a href="" class="show">
-                                <img src="/Images/Icon-Search.svg" alt="">
-                            </a>
-                            <a href="" class="edit">
-                                <img src="/Images/Icon -Edit.svg" alt="">
-                            </a>
-                            <a href="" class="delete">
-                                <img src="/Images/Icon-Delete.svg" alt="">
-                            </a>
-                          </td>
-                    </tr>
-                    <tr>
-                        <td><img src="/Images/ico-user.svg" alt=""></td>
-                        <td>User 02</td>
-                          <td>
-                            <a href="" class="show">
-                                <img src="/Images/Icon-Search.svg" alt="">
-                            </a>
-                            <a href="" class="edit">
-                                <img src="/Images/Icon -Edit.svg" alt="">
-                            </a>
-                            <a href="" class="delete">
-                                <img src="/Images/Icon-Delete.svg" alt="">
-                            </a>
-                          </td>
-                    </tr>
-                    <tr>
-                        <td><img src="/Images/ico-user.svg" alt=""></td>
-                        <td>User 03</td>
+                        <td><img src="/Images/Pet-icon.svg" alt=""></td>
                         <td>
-                            <a href="" class="show">
+                            <span>Pet 01</span>
+                            <span>(Fish)</span>
+                        </td>
+                          <td>
+                            <a href="../pets/show.html" class="show">
                                 <img src="/Images/Icon-Search.svg" alt="">
                             </a>
-                            <a href="" class="edit">
+                            <a href="../pets/edit.html" class="edit">
                                 <img src="/Images/Icon -Edit.svg" alt="">
                             </a>
-                            <a href="" class="delete">
+                            <a href="javascript:;" class="delete">
+                                <img src="/Images/Icon-Delete.svg" alt="">
+                            </a>
+                          </td>
+                    </tr>
+                    <tr>
+                        <td><img src="/Images/Pet-icon.svg" alt=""></td>
+                        <td>
+                            <span>Pet 02</span>
+                            <span>(Cat)</span>
+                        </td>
+                          <td>
+                           <a href="../pets/show.html" class="show">
+                                <img src="/Images/Icon-Search.svg" alt="">
+                            </a>
+                            <a href="../pets/edit.html" class="edit">
+                                <img src="/Images/Icon -Edit.svg" alt="">
+                            </a>
+                            <a href="javascript:;" class="delete">
+                                <img src="/Images/Icon-Delete.svg" alt="">
+                            </a>
+                          </td>
+                    </tr>
+                    <tr>
+                        <td><img src="/Images/Pet-icon.svg" alt=""></td>
+                        <td>
+                            <span>Pet 03</span>
+                            <span>(Dog)</span>
+                        </td>
+                        <td>
+                           <a href="../pets/show.html" class="show">
+                                <img src="/Images/Icon-Search.svg" alt="">
+                            </a>
+                            <a href="../pets/edit.html" class="edit">
+                                <img src="/Images/Icon -Edit.svg" alt="">
+                            </a>
+                            <a href="javascript:;" class="delete">
                                 <img src="/Images/Icon-Delete.svg" alt="">
                             </a>
                         </td>
                     </tr>
                     <tr>
-                        <td><img src="/Images/ico-user.svg" alt=""></td>
-                        <td>User 04</td>
+                        <td><img src="/Images/Pet-icon.svg" alt=""></td>
+                        <td>
+                            <span>Pet 04</span>
+                            <span>(Canary)</span>
+                        </td>
                            <td>
-                            <a href="" class="show">
+                           <a href="../pets/show.html" class="show">
                                 <img src="/Images/Icon-Search.svg" alt="">
                             </a>
-                            <a href="" class="edit">
+                            <a href="../pets/edit.html" class="edit">
                                 <img src="/Images/Icon -Edit.svg" alt="">
                             </a>
-                            <a href="" class="delete">
+                            <a href="javascript:;" class="delete">
                                 <img src="/Images/Icon-Delete.svg" alt="">
                             </a>
                            </td>
                     </tr>
                     <tr>
-                        <td><img src="/Images/ico-user.svg" alt=""></td>
-                        <td>User 05</td>
+                        <td><img src="/Images/Pet-icon.svg" alt=""></td>
+                        <td>
+                            <span>Pet 05</span>
+                            <span>(Carrot)</span>
+                        </td>
                            <td>
-                            <a href="" class="show">
+                           <a href="../pets/show.html" class="show" >
                                 <img src="/Images/Icon-Search.svg" alt="">
                             </a>
-                            <a href="" class="edit">
+                            <a href="../pets/edit.html" class="edit">
                                 <img src="/Images/Icon -Edit.svg" alt="">
                             </a>
-                            <a href="" class="delete">
+                            <a href="javascript:;" class="delete">
                                 <img src="/Images/Icon-Delete.svg" alt="">
                             </a>
                            </td>
@@ -102,6 +117,33 @@
         </section>
 
     </main>
+    <script src="/01_UI/Js/sweetalert2.js"></script>
+    <script src="/01_UI/Js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          $('body').on('click', '.delete', function () {
+            Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "error",
+  showCancelButton: true,
+  confirmButtonColor: "#22799e",
+  cancelButtonColor: "#2ec4b6",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire({
+      title: "Deleted!",
+      text: "The user deleted.",
+      icon: "success",
+      confirmButtonColor: "#22799e"
+    });
+  }
+});
+            
+          })
+        })
+    </script>
     
 </body>
 </html>

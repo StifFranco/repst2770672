@@ -63,6 +63,7 @@ $pets = getAllPets($conx);
     <script>
         $(document).ready(function () {
           $('body').on('click', '.delete', function () {
+          $id = $ (this).attr("href").split("?id=")[1] //
             Swal.fire({
   title: "Are you sure?",
   text: "You won't be able to revert this!",

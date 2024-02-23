@@ -15,7 +15,7 @@ $pets = getAllPets($conx);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pets</title>
-    <link rel="stylesheet" href="/css/master.css">   
+   <link rel="stylesheet" href="/css/master.css">
 </head>
 <body>
     <main>
@@ -33,7 +33,7 @@ $pets = getAllPets($conx);
             <h1>Module Pets</h1>
            <table>
                 <tbody>
-                    <?php foreach($pets as $pet)  ?>
+                    <?php foreach($pets as $pet):  ?>
                     <tr>
                         <td><img src="/Images/Pet-icon.svg" alt=""></td>
                         <td>
@@ -41,10 +41,10 @@ $pets = getAllPets($conx);
                             <span><?php echo $pet['type'] ?></span>
                         </td>
                           <td>
-                            <a href="show.html" class="show">
+                            <a href="./show.html" class="show">
                                 <img src="/Images/Icon-Search.svg" alt="">
                             </a>
-                            <a href="edit.html" class="edit">
+                            <a href="./edit.html" class="edit">
                                 <img src="/Images/Icon -Edit.svg" alt="">
                             </a>
                             <a href="javascript:;" class="delete">
@@ -52,7 +52,7 @@ $pets = getAllPets($conx);
                             </a>
                           </td>
                     </tr>
-                       
+                    <?php endforeach ?>   
                 </tbody>
            </table>
         </section>

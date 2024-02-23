@@ -41,10 +41,10 @@ $pets = getAllPets($conx);
                             <span><?php echo $pet['type'] ?></span>
                         </td>
                           <td>
-                            <a href="./show.html" class="show">
+                            <a href="show.php?id=<?$pet['id']?> class="show">
                                 <img src="/Images/Icon-Search.svg" alt="">
                             </a>
-                            <a href="./edit.html" class="edit">
+                            <a href="edit.php?id=<?$pet['id']?>" class="edit">
                                 <img src="/Images/Icon -Edit.svg" alt="">
                             </a>
                             <a href="javascript:;" class="delete">

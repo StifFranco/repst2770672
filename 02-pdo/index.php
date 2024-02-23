@@ -19,7 +19,7 @@ $pets = getAllPets($conx);
 </head>
 <body>
     <main>
-        <header class="nav level-1">
+        <header class="nav level-0">
             <a href="/01_UI/html/dashboard.html">
                 <img src="/Images/icon-back.svg" alt="back">
             </a>
@@ -31,23 +31,28 @@ $pets = getAllPets($conx);
 
         <section class="module">
             <h1>Module Pets</h1>
+            <a class="add" href="add.php">
+              <img src="/Images/add-icon.svg" width="30px" alt="add">
+              Add Pet
+            </a>
+
            <table>
                 <tbody>
                     <?php foreach($pets as $pet):  ?>
                     <tr>
-                        <td><img src="/Images/Pet-icon.svg" alt=""></td>
+                        <td><img src="<?php echo URLIMAGES ."/" . $pet['photo'] ?>" alt="Pet"></td>
                         <td>
                             <span><?php echo $pet['name'] ?></span>
                             <span><?php echo $pet['type'] ?></span>
                         </td>
                           <td>
-                            <a href="show.php?id=<?$pet['id']?> class="show">
+                            <a href="show.php?id=<?=$pet['id']?>" class="show">
                                 <img src="/Images/Icon-Search.svg" alt="">
                             </a>
-                            <a href="edit.php?id=<?$pet['id']?>" class="edit">
+                            <a href="edit.php?id=<?=$pet['id']?>" class="edit">
                                 <img src="/Images/Icon -Edit.svg" alt="">
                             </a>
-                            <a href="javascript:;" class="delete">
+                            <a href="javascript:;" class="delete" data-id= "<?=$pet['id']?>">
                                 <img src="/Images/Icon-Delete.svg" alt="">
                             </a>
                           </td>
@@ -62,6 +67,19 @@ $pets = getAllPets($conx);
     <script src="/01_UI/Js/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
+      
+          <?php if(isset($_SESSION['msj'])): ?>
+      
+            Swal.fire({
+            title: "Congratulations!",
+            text: "<?php echo $_SESSION['msj'] ?>",
+            confirmButtonColor: "#22799e",
+            icon: "success"
+            })
+
+          <?php unset($_SESSION['msg']) ?> 
+          <?php endif ?>
+
           $('body').on('click', '.delete', function () {
           $id = $ (this).attr('data-id')
           alert($id)
@@ -76,10 +94,10 @@ $pets = getAllPets($conx);
 }).then((result) => {
   if (result.isConfirmed) {
     Swal.fire({
-      title: "Deleted!",
-      text: "The user deleted.",
+      title: "Congratulations!",
+      text: "Melo",
       icon: "success",
-      confirmButtonColor: "#22799e"
+      time: 2500,
     });
   }
 });

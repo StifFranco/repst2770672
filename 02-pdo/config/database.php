@@ -29,16 +29,44 @@ function getAllPets($conx){
 
 //---------------------//
 //Get Pet
-function getlPet($conx){
+function getPet($conx, $id){
     try{
         $sql = "SELECT * FROM pets WHERE id = :id";
-        $stm = $conx -> prepare( $sql );
-        $stm -> execute();
+       $stm = $conx -> prepare( $sql );
+        //$stm -> bindParam(':id', id);
+        $stm -> execute(['id'  => $id]);
         return $stm -> fetch();
     } catch  (PDOException $e) {
        echo "Error: " . $e->getMessage();
        }
 }
+
+
+//--------------------//
+// Update Pet
+
+function updatePet($conx, $data){
+    try {
+        if(count($data) == 7){
+        $sql = "UPDATE pets SET name=:name, type=:type, weight=:weight,
+                        age=:age, breed=:breed, location=:location WHERE id = :id";
+        } else {
+            $sql = "UPDATE pets SET name=:name, photo=:photo, type=:type, weight=:weight,
+            age=:age, breed=:breed, location=:location WHERE id = :id";
+        }
+        $smt = $conx ->prepare($sql);
+        
+        if($smt->execute($data)){
+            $_SESSION['msj'] = 'The ' . $data['name'] . ' was added succesfully.';
+            return true;
+        } else{
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo "Error : "  . $e->getMessage();
+    }
+} 
+
 
 
 

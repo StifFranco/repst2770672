@@ -77,7 +77,7 @@ $pets = getAllPets($conx);
             icon: "success"
             })
 
-          <?php unset($_SESSION['msg']) ?> 
+          <?php unset($_SESSION['msj']) ?> 
           <?php endif ?>
 
           $('body').on('click', '.delete', function () {

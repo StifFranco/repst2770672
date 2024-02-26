@@ -1,3 +1,14 @@
+<?php
+
+require "config/app.php";
+require "config/database.php";
+
+$pet = getPet($conx, $_GET['id']);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +20,7 @@
 <body>
     <main>
         <header class="nav level-1">
-            <a href="index.html" >
+            <a href="index.php" >
                 <img src="/Images/icon-back.svg" alt="back">
             </a>
             <img src="/Images/Pet Logo.svg" alt="logo">
@@ -20,14 +31,14 @@
 
         <section class="show">
             <h1>Show Pet</h1>
-            <img src="/Images/Pet-upload.svg" class="photo" alt="photo">
+            <img src="<?php  echo URLIMAGES . "/" . $pet['photo'] ?>" class="photo" alt="photo">
             <div class="info">
-                <p>Pet</p>
-                <p>Animal</p>
-                <p>00 years old</p>
-                <p>00 punds</p>
-                <p>Breed</p>
-                <p>City</p>
+                <p><?=$pet['name'] ?></p>
+                <p><?=$pet['type'] ?></p>
+                <p><?=$pet['age']?>Years Old</p>
+                <p><?=$pet['weight'] ?> Lbrs</p>
+                <p><?=$pet['breed']?></p>
+                <p><?=$pet['location']?></p>
 
             </div>
        

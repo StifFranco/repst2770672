@@ -77,7 +77,7 @@ $pets = getAllPets($conx);
             icon: "success"
             })
 
-          <?php unset($_SESSION['msj']) ?> 
+          <?php unset($_SESSION['msg']) ?> 
           <?php endif ?>
 
           $('body').on('click', '.delete', function () {
@@ -93,12 +93,7 @@ $pets = getAllPets($conx);
   confirmButtonText: "Yes, delete it!"
 }).then((result) => {
   if (result.isConfirmed) {
-    Swal.fire({
-      title: "Congratulations!",
-      text: "Melo",
-      icon: "success",
-      time: 2500,
-    });
+      window.location.replace('delete.php?id=' + $id)
   }
 });
             

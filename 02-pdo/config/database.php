@@ -57,7 +57,7 @@ function updatePet($conx, $data){
         $smt = $conx ->prepare($sql);
         
         if($smt->execute($data)){
-            $_SESSION['msj'] = 'The ' . $data['name'] . ' was added succesfully.';
+            $_SESSION['msj'] = 'The ' . $data['name'] . ' was update succesfully.';
             return true;
         } else{
             return false;
@@ -91,3 +91,18 @@ function addPet($conx, $data){
         echo "Error : "  . $e->getMessage();
     }
 } 
+
+//---------------------//
+//Delete Pet
+
+function deletePet($conx, $id){
+    try{
+        $sql = "DELETE FROM pets WHERE id = :id";
+       $stm = $conx -> prepare( $sql );
+        $stm -> execute(['id'  => $id]);
+        $_SESSION['msj'] = 'The Pet was deleted succesfully.';
+        return true;
+    } catch  (PDOException $e) {
+       echo "Error: " . $e->getMessage();
+       }
+}

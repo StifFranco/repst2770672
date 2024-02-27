@@ -71,10 +71,11 @@ $pets = getAllPets($conx);
           <?php if(isset($_SESSION['msj'])): ?>
       
             Swal.fire({
+            position: "top-end",
             title: "Congratulations!",
             text: "<?php echo $_SESSION['msj'] ?>",
-            confirmButtonColor: "#22799e",
-            icon: "success"
+            confirmButtonColor: false,
+            timer: 5000
             })
 
           <?php unset($_SESSION['msg']) ?> 
@@ -82,20 +83,19 @@ $pets = getAllPets($conx);
 
           $('body').on('click', '.delete', function () {
           $id = $ (this).attr('data-id')
-          alert($id)
             Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "error",
-  showCancelButton: true,
-  confirmButtonColor: "#22799e",
-  cancelButtonColor: "#2ec4b6",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed) {
-      window.location.replace('delete.php?id=' + $id)
-  }
-});
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "error",
+            showCancelButton: true,
+            confirmButtonColor: "#22799e",
+            cancelButtonColor: "#2ec4b6",
+            confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.replace('delete.php?id=' + $id)
+            }
+            });
             
           })
         })

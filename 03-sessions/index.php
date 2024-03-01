@@ -56,6 +56,22 @@ if (isset($_SESSION['uid'])){
           <?php endif ?>
 
         })
+        
+      
+      <?php if(isset($_SESSION['msj'])): ?>
+  
+        Swal.fire({
+        position: "top-end",
+        title: "Congratulations!",
+        text: "<?php echo $_SESSION['msj'] ?>",
+        confirmButtonColor: false,
+        timer: 5000
+        })
+
+      <?php unset($_SESSION['msj']) ?> 
+      <?php endif ?>
+
+
     </script>
     
 </body>

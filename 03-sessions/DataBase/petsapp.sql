@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-02-2024 a las 14:23:19
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Tiempo de generación: 01-03-2024 a las 13:52:09
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -36,7 +35,7 @@ CREATE TABLE `pets` (
   `age` int(3) NOT NULL,
   `breed` varchar(32) NOT NULL,
   `location` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `pets`
@@ -46,7 +45,6 @@ INSERT INTO `pets` (`id`, `name`, `photo`, `type`, `weight`, `age`, `breed`, `lo
 (1, 'Doradito', 'Pet-icon.svg', 'Fish', '22', 1, 'Golden Fish', 'Cartago'),
 (2, 'Michi', 'Pet-icon.svg', 'Cat', '50', 2, 'Persa', 'Bogota'),
 (4, 'Tobias', '1708986078.jpg', 'Dog', '64', 1, 'Pastor Collie', 'Medellin'),
-(18, 'Cuacker', 'Pet-icon.svg', 'Duck', '22', 1, 'Mandarin Duck', 'Manizales'),
 (19, 'Patricio', '1708977468.jpg', 'Duck', '4', 5, 'Mandarin', 'Cali');
 
 -- --------------------------------------------------------
@@ -62,15 +60,16 @@ CREATE TABLE `users` (
   `photo` varchar(64) DEFAULT 'ico-user.svg',
   `phone` varchar(16) NOT NULL,
   `email` varchar(32) NOT NULL,
-  `password` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `password` varchar(64) NOT NULL,
+  `role` varchar(32) NOT NULL DEFAULT 'Customer'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `document`, `fullname`, `photo`, `phone`, `email`, `password`) VALUES
-(1, 75000001, 'Jesus Jose Jaramillo', 'ico-user.svg', '3225669559', 'jejoja@gmail.com', ' $2y$10$eRpDlGmh6073P2PgORI/fOEGsZGAsbS3ARFe8oLVfhyGx6qm1TVhu');
+INSERT INTO `users` (`id`, `document`, `fullname`, `photo`, `phone`, `email`, `password`, `role`) VALUES
+(1, 75000001, 'Jesus Jose Jaramillo', 'ico-user.svg', '3225669559', 'jejoja@gmail.com', '$2y$10$7V9AqrE4qajFMLMt1tRXkOSFNABTbYCyS5hi4OrSx7L1dxnE0cvje', 'Admin');
 
 --
 -- Índices para tablas volcadas
@@ -98,15 +97,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

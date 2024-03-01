@@ -3,10 +3,14 @@
 require "config/app.php";
 require "config/database.php";
 
+    $user = getUser($conx, $_SESSION['uid']); 
+
     if(!isset($_SESSION['uid'])){
         $_SESSION['error'] = "Please login first to access dashboard";
         header("location: index.php");     
     }
+
+ 
 
 ?>
 <!DOCTYPE html>
@@ -33,14 +37,36 @@ require "config/database.php";
             width: 100%;
 
             a:is(:link,:visited){
-                border: 1px solid #ffff;
                 border-radius: 50px;
                 color: #ffff;
                 font-size: 2rem;
                 padding: 10px 20px;
                 text-decoration: none;
             }
+
+            nav{
+                color: #fff9;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+
+                img{
+                    border: 2px solid #ffff;
+                    border-radius: 60%;
+                    object-fit: cover;
+                    width: 200px;
+                }
+
+                h4, h5{
+                    margin: 0;
+                }
+
+                a.closes{
+                border: 2px solid #ffff;
+            }
         }
+    } 
         div.menu.open{
             animation: openMenu 0.5s ease-in 1 forwards;
         }
@@ -74,12 +100,15 @@ require "config/database.php";
     <div class="menu">
     <a href="javascript:;" class="closem">X</a>
     <nav>
-        <a href="close.php">Close Sesion</a>
+        <img src="/Images/foto_foto.jpg" alt="">
+        <h4><?=$user['fullname']?></h4>
+        <h5><?=$user['role']?></h5>
+        <a href="close.php" class="closes">Close Sesion</a>
     </nav>
     </div>
 
 
-<main>
+    <main>
         <header class="nav level-0">
             <a href="">
                 <img src="/Images/icon-back.svg" alt="back">
@@ -90,6 +119,7 @@ require "config/database.php";
             </a>
         </header>
 
+        <?php if ($_SESSION['urole'] == 'Admin'):?>
         <section class="dashboard">
             <h1>Dashboard</h1>
             <menu>
@@ -115,7 +145,21 @@ require "config/database.php";
                 </ul>
             </menu>
         </section>
-
+    <?php elseif ($_SESSION['urole'] == 'Customer'):?>
+        <section class="dashboard">
+        <h1>Dashboard</h1>
+        <menu>
+           <ul>
+            <li>
+                <a href="#">
+                  <img src="/Images/icon-adopt.svg" alt="icon-adoption">
+                    <span>Module Adoptions</span>
+                </a>
+            </li>
+           </ul>
+        </menu>
+        </section>
+        <?php endif?>
     </main>
     
     <script src="/01_UI/Js/sweetalert2.js"></script>

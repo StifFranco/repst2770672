@@ -18,6 +18,8 @@ class Userseeder extends Seeder
         $user = new User;
         $user->document =  123456789;
         $user->fullname = "Jesus Jose Gonzales Smith";
+        $user->gender    = "Male";
+        $user->birthdate = "1985/05/15";
         $user->photo    = "foto_foto.PNG";
         $user->phone    = 3226557899;
         $user->email    = "jejoja@gmail.com";
@@ -29,10 +31,14 @@ class Userseeder extends Seeder
         DB::table('users')->insert([
             'document' => 987654321,
             'fullname' => 'Abraham Simpson',
+            'gender' => 'Male',
+            'birthdate' => '1935/02/11',
             'photo' => 'Abraham Simpson',
             'phone' => 3226557899,
             'email' => 'abraham@gmail.com',
             'password' => bcrypt('12345'),
         ]);
-    }
+
+  
+    } 
 }

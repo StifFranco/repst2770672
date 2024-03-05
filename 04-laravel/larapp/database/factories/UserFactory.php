@@ -23,15 +23,23 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $gender = fake()->randomElement(['Male', 'Female']);
+    
+        $firstName = ($gender == 'Male') ? fake()->firstNameMale() : fake()->firstNameFemale();
+    
         return [
-            'name' => fake()->name(),
+            'document' => fake()->randomNumber(9, true),
+            'fullname' => $firstName . " " . fake()->lastName(),
+            'gender'    => $gender, 
+            'birthdate' => fake()->dateTimeBetween('1980-01-01','2002-12-31'),
+            'photo' => fake()->image('public\images',640,480, null, false),
+            'phone'    => fake()->phoneNumber(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => static::$password ??= Hash::make('12345'),
             'remember_token' => Str::random(10),
         ];
     }
-
     /**
      * Indicate that the model's email address should be unverified.
      */

@@ -23,13 +23,18 @@ class AdoptionSeeder extends Seeder
        $adoptn->save();
 
        $adoptn = new Adoption;
-       $adoptn->user_id = 15;
+       $adoptn->user_id = 8;
         $adoptn->pet_id =2;
        $adoptn->save();
 
        $adoptn = new Adoption;
        $adoptn->user_id = 8;
         $adoptn->pet_id =3;
+       $adoptn->save();
+
+       $adoptn = new Adoption;
+       $adoptn->user_id = 10;
+        $adoptn->pet_id = 3;
        $adoptn->save();
     }
 }

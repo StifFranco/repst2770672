@@ -44,5 +44,7 @@ class Petseeder extends Seeder
         $pet->breed  =  'Border Collie';
         $pet->location   =  'Manizales';
         $pet->save();
+
+        
     }
 }

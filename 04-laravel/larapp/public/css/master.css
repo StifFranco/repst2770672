@@ -503,7 +503,7 @@ main {
         justify-content: center;
         min-height: 100vh;
         transition: all 0.5s ease-in;
-        width: 440px;
+        width: 1000px;
 
         a:is(:link, :visited) {
             border-radius: 50px;

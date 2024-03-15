@@ -21,20 +21,7 @@
 
 @section('content')
 
-
-<div class="menu">
-<a href="javascript:;" class="closem">X</a>
-<nav>
-    <img src="{{ asset('images') . '/' . Auth::user()->photo }}" alt="photo">
-    <h4>{{ Auth::user()->fullname }}</h4>
-    <h5>{{ Auth::user()->role }}</h5>
-    <form action="{{ route('logout') }}" method="post">
-        <button class="closes">Log Out</button>
-        @csrf
-    </form>
-</nav>
-</div>
-
+@include('layouts.menuburguer')
 
 <main>
     <header class="nav level-0">
@@ -49,7 +36,7 @@
 
     
     <section class="dashboard">
-        <h1>Dashboard</h1>
+        <h1>Dashboard Administrator</h1>
         <menu>
             <ul>
                 <li>

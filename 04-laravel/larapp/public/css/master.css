@@ -125,7 +125,7 @@ main {
                 color: var(--color-fiv);
                 font-size: 24px;
                 font-weight: 400;
-                background-color: var(--color-pri);
+                background-color: var(--color-tre);
                 transition: all 0.5s ease-in;
                 
                 &::placeholder {
@@ -194,6 +194,13 @@ main {
     header.nav.level-0 {
 
         a:first-of-type {
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
+    header.nav.level-2 {
+
+        a:last-of-type {
             visibility: hidden;
             pointer-events: none;
         }
@@ -503,7 +510,7 @@ main {
         justify-content: center;
         min-height: 100vh;
         transition: all 0.5s ease-in;
-        width: 1000px;
+        width: 1940px;
 
         a:is(:link, :visited) {
             border-radius: 50px;
@@ -553,6 +560,45 @@ main {
     div.menu.open {
         top: 0;
         opacity: 1;
+    }
+
+    table{
+        tfoot{
+            nav{
+              ul.pagination{
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: space-between;
+                li{
+                    a:is(:link, :visited){
+                        border: 2px solid #011627;
+                        border-radius: 30px;
+                        color: #011627;
+                        font-size: 2rem;
+                        padding: 6px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 50px;
+                        width: 50px;
+                        text-decoration: none;
+                        transition: all 0.2s ease-in;
+                    }
+                    a[rel=prev]:hover{
+                        transform: translateX(-6px);
+                    }
+                    a[rel=next]:hover{
+                        transform: translateX(6px);
+                    }
+                }
+                li.disabled{
+                    opacity: 0;
+                }
+              }
+                
+            }
+        }
     }
     
 }

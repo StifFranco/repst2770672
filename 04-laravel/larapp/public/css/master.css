@@ -328,6 +328,27 @@ main {
                         flex-direction: column;
                         width: 130px;
                     }
+                    td:nth-child(3){
+                        display: flex;
+                        form{
+                            margin: 0;
+                            padding: 0;
+                        }
+                        button{
+                            background: none;
+                            border: none;
+                            display: block;
+                            height: 40px;
+                            cursor: pointer;
+                            transform: scale(0.9);
+                            transition: all 0.2s;
+                            width: 2px;
+                            padding: 0;
+                            &:hover{
+                                transform: scale(1);
+                            }
+                        }
+                    }
                 }
 
                 td {

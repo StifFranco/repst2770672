@@ -50,6 +50,7 @@
     
     <section class="dashboard">
         <h1>Dashboard Customer</h1>
+     
         <menu>
             <ul>
                 <li>
@@ -60,7 +61,7 @@
                 </li>
               
                 <li>
-                    <a href="{{ url('adptions') }}">
+                    <a href="{{ url('myadoptions') }}">
                         <img src="{{ asset('images/icon-adopt.svg') }}" alt="icon-adoption">
                         <span>Module Adoptions</span>
                     </a>

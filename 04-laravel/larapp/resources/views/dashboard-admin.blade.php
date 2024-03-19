@@ -52,7 +52,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('adptions') }}">
+                    <a href="{{ url('adoptions') }}">
                         <img src="{{ asset('images/icon-adopt.svg') }}" alt="icon-adoption">
                         <span>Module Adoptions</span>
                     </a>

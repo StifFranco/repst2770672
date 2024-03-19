@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -58,7 +59,6 @@ class UserController extends Controller
             'photo'      => $photo,
             'phone'      => $request->phone,
             'email'      => $request->email,
-            'password' => bcrypt($request->password),
         ]);
 
         if($user){
@@ -154,4 +154,13 @@ class UserController extends Controller
              return redirect('users')->with('message', 'The user: '.$user->fullname.' was successfully deleted.');
         }
     }
+
+
+    public function mydata(){
+        $user= User::find(Auth::user()->id);
+       return view('users.mydata')->with('user', $user);
+    }
 }
+
+
+

@@ -1,9 +1,10 @@
 @extends('layouts.app')
-@section('title', 'Create User Page - PetsApp')
+
+@section('title', 'Edit Users - PetsApp')
 
 @section('content')
 <header class="nav level-2">
-    <a href="{{ url('users') }}">
+    <a href="{{ url('pets') }}">
         <img src="{{ asset('images/icon-back.svg') }}" alt="back">
     </a>
     <img src="{{ asset('images/Pet Logo.svg') }}" alt="logo">
@@ -13,23 +14,19 @@
 </header>
 <section class="create register">
 
-    <form action="{{ route('users.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('pets/'.$pet->id) }}" method="post" enctype="multipart/form-data">
         @csrf
-        <img src="{{ asset('images/ico-upload-user.svg') }}" id="upload" alt="upload-photo" width="220px">
+        @method('put')
+        <input type="hidden" name="photoactual" value="{{ $pet->photo }}">
+        <img src="{{ asset('images/'.$pet->photo) }}" id="upload" alt="upload-photo" width="220px">
         <input type="file" name="photo" id="photo" accept="image/*">
-        <input type="number" name="document" placeholder="Document" value="{{ old('document') }}">
-        <input type="text" name="fullname" placeholder="Full Name" value="{{ old('fullname') }}">
-        <select name="gender">
-            <option value="">SELECT GENDER...</option>
-            <option value="Female" @if(old('gender') == 'Female') selected @endif>FEMALE</option>
-            <option value="Male" @if(old('gender')  == 'Male') selected @endif>MALE</option>
-            <option value="Other" @if(old('gender') == 'Other') selected @endif>OTHER</option>
-        </select>
-        <input type="date" name="birthdate" placeholder="Birthdate" value="{{ old('birthdate') }}">
-        <input type="text" name="phone" placeholder="Phone Number" value="{{ old('phone') }}">
-        <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
-        
-        <button type="submit">ADD</button>
+        <input type="text" name="name" placeholder="Name Pet" value="{{ old('name', $pet->name) }}">
+        <input type="text" name="type" placeholder="Type" value="{{ old('type', $pet->type) }}">
+        <input type="number" name="weight" placeholder="Weight" value="{{ old('weight', $pet->weight) }}">
+        <input type="number" name="age" placeholder="Age" value="{{ old('age', $pet->age) }}">
+        <input type="text" name="breed" placeholder="Breed" value="{{ old('breed', $pet->breed) }}">
+        <input type="text" name="location" placeholder="Location" value="{{ old('location', $pet->location) }}">
+        <button type="submit">EDIT</button>
     </form>
 </section>
 

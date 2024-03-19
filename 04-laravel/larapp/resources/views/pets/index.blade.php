@@ -14,32 +14,32 @@
         </header>
 
         <section class="module">
-            <h1>Module Users</h1>
-            <a class="add" href="{{ url('users/create') }}">
+            <h1>Module Pets</h1>
+            <a class="add" href="{{ url('pets/create') }}">
                 <img src="{{ asset('images/add-icon.svg') }}" width="30px" alt="add">
-                Add User
+                Add Pet
             </a>
 
             <table>
                 <tbody>
 
-                    @foreach ($users as $user)
+                    @foreach ($pets as $pet)
                         <tr>
                             <td>
-                                <img src="{{ asset('images/' . $user->photo) }}" alt="User">
+                                <img src="{{ asset('images/' . $pet->photo) }}" alt="Pet">
                             </td>
                             <td>
-                                <span>{{ $user->fullname }}</span>
-                                <span>{{ $user->role }}</span>
+                                <span>{{ $pet->name }}</span>
+                                <span>{{ $pet->type }}</span>
                             </td>
                             <td>
-                                <a href="{{ url('users/' . $user->id) }}" class="show">
+                                <a href="{{ url('pets/' . $pet->id) }}" class="show">
                                     <img src="{{ asset('images/icon-Search.svg') }}" alt="show icon">
                                 </a>
-                                <a href="{{ url('users/' . $user->id . '/edit') }}" class="edit">
+                                <a href="{{ url('pets/' . $pet->id . '/edit') }}" class="edit">
                                     <img src="{{ asset('images/icon -Edit.svg') }}" alt="edit icon">
                                 </a>
-                                <form action="{{ url('users/'.$user->id) }}" method="POST">
+                                <form action="{{ url('pets/'.$pet->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="button" class="btn-delete">
@@ -52,7 +52,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="3">{{ $users->links('layouts.paginator') }}
+                        {{--<td colspan="3">{{ $pets->links('layouts.paginator') }}--}}
 
                         </td>
                     </tr>

@@ -78,26 +78,4 @@
             })
         </script>
     @endif
-    <script>
-        $(document).ready(function() {
-            $('body').on('click', '.btn-delete', function() {
-                Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
-                    icon: "error",
-                    showCancelButton: true,
-                    confirmButtonColor: "#22799e",
-                    cancelButtonColor: "#2ec4b6",
-                    confirmButtonText: "Yes, delete it!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        if (result.isConfirmed) {
-                            $(this).parent().submit()
-                        }
-                    }
-                })
-
-            })
-        })
-    </script>
 @endsection
